@@ -1,0 +1,43 @@
+{
+  "name": "backend-sistema-gestion-de-biblioteca",
+  "version": "1.0.0",
+  "description": "Backend for a library management system",
+  "main": "build/server.js",
+  "scripts": {
+    "start": "tsc && ENVIRONMENT=production node build/index.js",
+    "dev": "ENVIRONMENT=development ts-node-dev ./src/index.ts",
+    "test": "ENVIRONMENT=test",
+    "build": "tsc",
+    "commit": "commit-easy"
+  },
+  "keywords": [
+    "library",
+    "management",
+    "system",
+    "backend",
+    "typescript",
+    "express"
+  ],
+  "author": "DarkMalk",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "5.1.1",
+    "cors": "2.8.5",
+    "dotenv": "16.4.5",
+    "express": "4.19.2",
+    "jsonwebtoken": "9.0.2",
+    "mysql2": "3.9.7",
+    "node-cron": "3.0.3"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "5.0.2",
+    "@types/cors": "2.8.17",
+    "@types/express": "4.17.21",
+    "@types/jsonwebtoken": "9.0.6",
+    "@types/node-cron": "^3.0.11",
+    "commit-easy": "1.0.4",
+    "ts-node-dev": "2.0.0",
+    "typescript": "5.4.5"
+  },
+  "packageManager": "pnpm@9.4.0+sha512.f549b8a52c9d2b8536762f99c0722205efc5af913e77835dbccc3b0b0b2ca9e7dc8022b78062c17291c48e88749c70ce88eb5a74f1fa8c4bf5e18bb46c8bd83a"
+}
