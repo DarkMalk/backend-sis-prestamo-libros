@@ -15,7 +15,7 @@ export const postNewLoan = async (req: Request, res: Response) => {
   }
 
   try {
-    const { id_user, id_book, id_book_info, start_date, finish_date, state } = validateReqLoan(req.body)
+    const { id_user, id_book, id_book_info, start_date, finish_date } = validateReqLoan(req.body)
 
     const checkFine = await checkFines(id_user)
     if (checkFine) {
@@ -33,7 +33,7 @@ export const postNewLoan = async (req: Request, res: Response) => {
       id_book_info,
       start_date,
       finish_date,
-      state
+      state: 'active'
     })
 
     const loan = await getOneLoan(insertId)

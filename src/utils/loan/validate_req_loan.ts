@@ -1,7 +1,7 @@
 import { ILoanWithoutId } from '../../models/loan/Loan'
 
-const validateReqLoan = ({ id_book, id_user, id_book_info, start_date, finish_date, state }: ILoanWithoutId) => {
-  if (!id_book || !id_user || !id_book_info || !start_date || !finish_date || !state) {
+const validateReqLoan = ({ id_book, id_user, id_book_info, start_date, finish_date }: ILoanWithoutId) => {
+  if (!id_book || !id_user || !id_book_info || !start_date || !finish_date) {
     throw new Error('Missing required fields in request body')
   }
 
@@ -25,15 +25,7 @@ const validateReqLoan = ({ id_book, id_user, id_book_info, start_date, finish_da
     throw new Error('finish_date must be a string')
   }
 
-  if (typeof state !== 'string') {
-    throw new Error('state must be a string')
-  }
-
-  if (state !== 'active' && state !== 'returned' && state !== 'expired') {
-    throw new Error('state must be active, returned or expired')
-  }
-
-  return { id_user, id_book, id_book_info, start_date, finish_date, state }
+  return { id_user, id_book, id_book_info, start_date, finish_date }
 }
 
 export { validateReqLoan }
