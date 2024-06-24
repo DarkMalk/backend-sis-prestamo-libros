@@ -236,7 +236,42 @@ pnpm run test
 
 **Descripción:** Este endpoint nos sirve para realizar login y registrar usuarios en la plataforma.
 
-1. **POST** `/api/user/login`
+1. **GET** `/api/user`
+
+   - **Descripción:** Nos permite obtener todos los usuarios registrados en la plataforma.
+   - **Requisitos:** Se debe estar autenticado con un usuario con rol `librarian` o `admin`
+   - **Response Body:** (JSON ejemplo)
+     - status: 200 (OK)
+     ```
+     [
+       {
+         "id": 1,
+         "username": "admin_user",
+         "email": "admin@example.com",
+         "name": "Admin",
+         "lastname": "User",
+         "role": "admin"
+       },
+       {
+         "id": 2,
+         "username": "john_doe",
+         "email": "john.doe@example.com",
+         "name": "John",
+         "lastname": "Doe",
+         "role": "client"
+       },
+       {
+         "id": 3,
+         "username": "jane_smith",
+         "email": "jane.smith@example.com",
+         "name": "Jane",
+         "lastname": "Smith",
+         "role": "librarian"
+       }
+     ]
+     ```
+
+2. **POST** `/api/user/login`
 
    - Descripción: Nos permite autenticarnos en la plataforma y obtener un `token` ademas de información del usuario
    - Request Body: (JSON ejemplo)
@@ -260,7 +295,7 @@ pnpm run test
      }
      ```
 
-2. **POST** `/api/user/register`
+3. **POST** `/api/user/register`
 
    - **Requisitos:** Estar autenticado con un usuario `librarian` o `admin`
    - **Descripción:** Nos permite registrar nuevos usuarios a la plataforma para habilitar el inicio de sesión, esta es una ruta protegida por lo que los usuarios con rol `client` no podrán tener acceso, ademas de que el rol `librarian` solo podrá crear usuarios de rol `client`
