@@ -44,5 +44,7 @@ export const query = {
   updateBookInfoDisponibilityBySerial:
     'update book_info set disponibility = (select id from state_book_disponibility where name = ?) where serial = ?',
   getAllUsers:
-    'select u.id, u.username, u.email, u.name, u.lastname, r.name as role from user u inner join role r on u.role = r.id'
+    'select u.id, u.username, u.email, u.name, u.lastname, r.name as role from user u inner join role r on u.role = r.id',
+  getAllFinesByUserId:
+    'select f.id, f.value, sf.name as state, u.username, u.email from fine f inner join user_fine uf on uf.id_fine = f.id inner join user u on uf.id_user = u.id inner join state_fine sf on sf.id = f.state where u.id = ?'
 }
