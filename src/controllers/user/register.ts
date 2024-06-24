@@ -22,9 +22,9 @@ const register = async (req: Request, res: Response) => {
     const passwordEncrypt = await bcrypt.hash(data.password, 10)
     await createUser({ ...data, password: passwordEncrypt })
 
-    const newUser = await getUserByUsername(data.username)
+    const { password, ...newUserWithoutPassword } = await getUserByUsername(data.username)
 
-    return res.status(HttpCodes.CREATED).json(newUser)
+    return res.status(HttpCodes.CREATED).json(newUserWithoutPassword)
   } catch (e) {
     if (!(e instanceof Error)) return
     return res.status(HttpCodes.BAD_REQUEST).json({ message: e.message })
