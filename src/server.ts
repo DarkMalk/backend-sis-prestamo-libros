@@ -24,7 +24,7 @@ app.use('/api/loan', RouterLoan)
 app.use('/api/fine', RouterFine)
 
 // Schedule Cron for create fine
-cron.schedule('0 0 23 * *', async () => {
+cron.schedule('0 0 * * *', async () => {
   const allLoans = await getAllLoans()
   const nowDate = new Date()
 
