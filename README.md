@@ -668,7 +668,7 @@ pnpm run test
 1. **GET** `/api/fine`
 
    - **Descripción:** Nos permite traer todas las deudas registradas en la plataforma, independiente si están activas o ya fueron pagadas.
-   - **Requisitos:** Se debe autenticar con un usuario con rol `librarian` o `admin`
+   - **Requisitos:** Se debe autenticar con un usuario independiente de su rol, en el caso del usuario `client` solo recuperara las deudas pertenecientes a el, y para el resto `librarian` o `admin` obtendrán las deudas generales (todas)
    - **Response Body:** (JSON ejemplo)
      - status: 200 (OK)
      ```
