@@ -42,5 +42,7 @@ export const query = {
     'SELECT bi.id, b.name, bi.serial, sb.name as state, bi.desc_state, sbd.name as disponibility FROM book_info bi INNER JOIN book b ON b.id = bi.id_book INNER JOIN state_book sb ON sb.id = bi.state LEFT JOIN state_book_disponibility sbd ON bi.disponibility = sbd.id WHERE bi.id = ?',
   updateLoanStateToReturned: "update loan set state = (select id from state_loan where name = 'returned') where id = ?",
   updateBookInfoDisponibilityBySerial:
-    'update book_info set disponibility = (select id from state_book_disponibility where name = ?) where serial = ?'
+    'update book_info set disponibility = (select id from state_book_disponibility where name = ?) where serial = ?',
+  getAllUsers:
+    'select u.id, u.username, u.email, u.name, u.lastname, r.name as role from user u inner join role r on u.role = r.id'
 }
