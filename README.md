@@ -579,6 +579,27 @@ pnpm run test
       }
       ```
 
+3.  **PUT** `/api/author/:id`
+
+    - **Descripción:** Nos permite editar los autores registrados en la plataforma.
+    - **Requisitos:** Debe estar autenticado con un usuario con rol de `admin`
+    - **Request Body:** (JSON ejemplo)
+      ```
+      {
+        "name": "Mark Twain",
+        "nationality": "American"
+      }
+      ```
+    - **Response Body:** (JSON ejemplo)
+      - status: 200 (OK)
+      ```
+      {
+        "id": 3,
+        "name": "Mark Twain",
+        "nationality": "American"
+      }
+      ```
+
 ### Endpoint `/api/loan`
 
 **Description:** Este endpoint nos permite obtener y crear nuevos prestamos de los libros en la plataforma.
@@ -640,7 +661,7 @@ pnpm run test
      }
      ```
 
-3. **PUT** `/api/loan/:id`
+3. **PATCH** `/api/loan/:id`
    - **Descripción:** con este método nos permite actualizar el estado del prestamo y del libro relacionado a este, al utilizarlo cambiamos el estado a `returned` y el libro con estado `available`.
    - **Requisitos:** Debe estar autenticado con un usuario con rol `librarian` y `admin`
    - **Parámetros:**
@@ -690,7 +711,7 @@ pnpm run test
      ]
      ```
 
-2. **PUT** `/api/fine/paid/:id`
+2. **PATCH** `/api/fine/paid/:id`
    - **Descripción:** Nos permite registrar una deuda como pagada.
    - **Requisitos:** Se debe estar autenticado con un usuario con rol `librarian` o `admin`
    - **Parámetros:**
