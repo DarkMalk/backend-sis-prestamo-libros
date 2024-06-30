@@ -8,6 +8,6 @@ const RouterLoan = Router()
 
 RouterLoan.get('/', authenticate, getLoans)
 RouterLoan.post('/', authenticate, postNewLoan)
-RouterLoan.put('/:id', authenticate, updateLoanReturned)
+RouterLoan.patch('/:id', authenticate, updateLoanReturned)
 
 export { RouterLoan }

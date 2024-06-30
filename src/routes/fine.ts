@@ -6,6 +6,6 @@ import { authenticate } from '../middlewares'
 const RouterFine = Router()
 
 RouterFine.get('/', authenticate, getFines)
-RouterFine.put('/paid/:id', authenticate, updateFineState)
+RouterFine.patch('/paid/:id', authenticate, updateFineState)
 
 export { RouterFine }
