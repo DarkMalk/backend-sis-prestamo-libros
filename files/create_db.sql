@@ -133,3 +133,7 @@ INSERT INTO `state_loan` (`name`) VALUES
 INSERT INTO `state_fine` (`name`) VALUES 
 ('pending'), 
 ('paid');
+
+INSERT INTO `state_book_disponibility` (`name`) VALUES
+('available'),
+('taken');
