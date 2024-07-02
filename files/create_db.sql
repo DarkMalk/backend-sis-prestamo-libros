@@ -37,7 +37,6 @@ CREATE TABLE `book` (
   `author` int NOT NULL,
   `isbn` varchar(80) NOT NULL,
   `editorial` varchar(80) NOT NULL,
-  `count` int NOT NULL,
   FOREIGN KEY (`author`) REFERENCES `author` (`id`)
 );
 
