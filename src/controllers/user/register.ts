@@ -7,17 +7,13 @@ import { getUserByUsername } from '../../services/user/get_user'
 
 const register = async (req: Request, res: Response) => {
   const { role } = req.body.user as UserPayload
+  // TODO: Si es un usuario cliente, debe poder registrarse unicamente con el rol 'client'
   if (role === 'client') {
     return res.status(HttpCodes.UNAUTHORIZED).json({ message: 'Unauthorized for this action' })
   }
 
   try {
     const data = validateReqRegister(req.body)
-    if (role === 'librarian' && (data.role === 'admin' || data.role === 'librarian')) {
-      return res
-        .status(HttpCodes.UNAUTHORIZED)
-        .json({ message: 'You are not authorized for create users with role admin or librarian' })
-    }
 
     const passwordEncrypt = await bcrypt.hash(data.password, 10)
     await createUser({ ...data, password: passwordEncrypt })

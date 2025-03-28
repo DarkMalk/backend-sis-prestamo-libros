@@ -9,5 +9,5 @@ export interface IUser extends RowDataPacket {
   name: string
   lastname: string
   password: string
-  role: 'admin' | 'librarian' | 'client'
+  role: 'librarian' | 'client'
 }

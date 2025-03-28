@@ -16,7 +16,7 @@ export type EnvJWT = {
 export type UserPayload = {
   id: number
   username: string
-  role: 'admin' | 'librarian' | 'client'
+  role: 'librarian' | 'client'
 }
 
 export enum HttpCodes {
