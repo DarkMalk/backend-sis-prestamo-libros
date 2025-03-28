@@ -1,18 +1,20 @@
 import { RouterUser, RouterRole, RouterBook, RouterGenre, RouterAuthor, RouterLoan, RouterFine } from './routes'
-import cron from 'node-cron'
+import { updateLoanStateToExpired } from './services/loan/update_loan_expired'
+import { postUserFine } from './services/fine/post_user_fine'
+import { getAllLoans } from './services/loan/get_all_loans'
+import { newFine } from './services/fine/post_new_fine'
 import { notFound } from './middlewares'
 import express from 'express'
+import cron from 'node-cron'
+import morgan from 'morgan'
 import cors from 'cors'
-import { getAllLoans } from './services/loan/get_all_loans'
-import { updateLoanStateToExpired } from './services/loan/update_loan_expired'
-import { newFine } from './services/fine/post_new_fine'
-import { postUserFine } from './services/fine/post_user_fine'
 
 const app = express()
 
 // Middlewares
 app.use(cors())
 app.use(express.json())
+app.use(morgan('dev'))
 
 // Routes
 app.use('/api/user', RouterUser)
