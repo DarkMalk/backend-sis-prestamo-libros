@@ -29,8 +29,8 @@ const validateReqRegister = ({ username, email, name, lastname, password, role }
     throw new Error('Role must be a string')
   }
 
-  if (role !== 'admin' && role !== 'librarian' && role !== 'client') {
-    throw new Error('Role must be one of the following: admin, librarian, client')
+  if (role !== 'librarian' && role !== 'client') {
+    throw new Error('Role must be one of the following: librarian, client')
   }
 
   return { username, email, name, lastname, password, role }
