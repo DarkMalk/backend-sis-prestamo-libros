@@ -1,13 +1,15 @@
-import { getLoans } from '../controllers/loan/get_all_loans'
-import { Router } from 'express'
+import { updateLoanState } from '../controllers/loan/update_loan_state'
 import { postNewLoan } from '../controllers/loan/post_new_loan'
+import { getLoans } from '../controllers/loan/get_all_loans'
+import { getOneLoan } from '../controllers/loan/get_one_loan'
 import { authenticate } from '../middlewares'
-import { updateLoanReturned } from '../controllers/loan/update_loan_returned'
+import { Router } from 'express'
 
 const RouterLoan = Router()
 
 RouterLoan.get('/', authenticate, getLoans)
+RouterLoan.get('/:id', authenticate, getOneLoan)
 RouterLoan.post('/', authenticate, postNewLoan)
-RouterLoan.patch('/:id', authenticate, updateLoanReturned)
+RouterLoan.patch('/:id', authenticate, updateLoanState)
 
 export { RouterLoan }
