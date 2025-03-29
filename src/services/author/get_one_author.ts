@@ -1,4 +1,4 @@
-import { query } from '../../utils/querys'
+import { query } from '../../utils/author/querys'
 import { conn } from '../../config/db'
 import { IAuthor } from '../../models/author/Author'
 
