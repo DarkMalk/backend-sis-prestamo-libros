@@ -1,11 +1,9 @@
 import { IBook } from '../../models/book/Book'
 
-type IValidateReqNewBook = IBook & { genres: string[] }
-
-export const validateReqNewBook = ({ name, author, genres, isbn, editorial }: Partial<IValidateReqNewBook>) => {
-  if (!name || !author || !genres || !isbn || !editorial) {
-    throw new Error('Missing required fields')
+export const validateReqNewBook = ({ name, author, isbn, editorial, genre, stock }: Partial<IBook>) => {
+  if (!name || !author || !isbn || !editorial || !genre || !stock) {
+    throw new Error('Missing required fields [name, author, isbn, editorial, genre, stock]')
   }
 
-  return { name, author, genres, isbn, editorial }
+  return { name, author, isbn, editorial, genre, stock }
 }
