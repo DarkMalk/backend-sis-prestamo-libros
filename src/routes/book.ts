@@ -1,16 +1,14 @@
-import { postNewBookInfo } from '../controllers/book/post_new_book_info'
-import { getBooksInfo } from '../controllers/book/get_books_info'
 import { postNewBook } from '../controllers/book/post_new_book'
+import { getOneBook } from '../controllers/book/get_one_book'
 import { getBooks } from '../controllers/book/get_books'
-import { Router } from 'express'
 import { authenticate } from '../middlewares'
+import { Router } from 'express'
 
 // /api/book
 const RouterBook = Router()
 
 RouterBook.get('/', getBooks)
-RouterBook.get('/:id', getBooksInfo)
+RouterBook.get('/:id', getOneBook)
 RouterBook.post('/', authenticate, postNewBook)
-RouterBook.post('/:id', authenticate, postNewBookInfo)
 
 export default RouterBook
