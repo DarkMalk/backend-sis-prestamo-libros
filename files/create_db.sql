@@ -21,7 +21,7 @@ CREATE TABLE `author` (
 
 CREATE TABLE `genre` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
-  `name` varchar(80) NOT NULL
+  `name` varchar(80) NOT NULL UNIQUE
 );
 
 CREATE TABLE `book` (
@@ -50,7 +50,7 @@ CREATE TABLE `loan` (
 
 CREATE TABLE `editorial` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
-  `name` varchar(80) NOT NULL
+  `name` varchar(80) NOT NULL UNIQUE
 );
 
 ALTER TABLE `user` ADD FOREIGN KEY (`role`) REFERENCES `role` (`id`);
@@ -66,3 +66,17 @@ ALTER TABLE `book` ADD FOREIGN KEY (`genre`) REFERENCES `genre` (`id`);
 ALTER TABLE `loan` ADD FOREIGN KEY (`id_book`) REFERENCES `book` (`id`);
 
 ALTER TABLE `book` ADD FOREIGN KEY (`editorial`) REFERENCES `editorial` (`id`);
+
+-- VALUES FOR INITIAL DATA
+INSERT INTO role (name) VALUES
+("librarian"),
+("client");
+
+INSERT INTO state_loan (name) VALUES
+("active"),
+("returned"),
+("expired");
+
+-- USER TEST: admin / admin
+INSERT INTO user (username, email, name, lastname, password, role)
+VALUES ("admin", "admin@test.com", "admin", "admin", "$2b$10$atbCXLijQC18d6Rq5DTQ1OH7Eq14G1XQfuCpyQFX.Ag4TKd..groC", (SELECT id FROM role WHERE name = "librarian"));
