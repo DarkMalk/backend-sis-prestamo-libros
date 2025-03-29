@@ -6,7 +6,7 @@ import { getOneGenre } from '../../services/genre/get_one_genre'
 
 export const postNewGenre = async (req: Request, res: Response) => {
   const { role } = req.body.user as UserPayload
-  if (role !== 'admin') {
+  if (role !== 'librarian') {
     return res.status(HttpCodes.UNAUTHORIZED).json({ message: 'Unauthorized' })
   }
 
