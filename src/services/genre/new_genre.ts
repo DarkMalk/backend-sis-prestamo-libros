@@ -1,5 +1,5 @@
 import { IGenreWithoutId } from '../../models/genre/Genre'
-import { query } from '../../utils/querys'
+import { query } from '../../utils/genre/querys'
 import { conn } from '../../config/db'
 import { ResultSetHeader } from 'mysql2'
 
