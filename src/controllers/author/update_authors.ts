@@ -9,7 +9,7 @@ export const updateAuthors = async (req: Request, res: Response) => {
   const { role } = req.body.user as UserPayload
   const { id } = req.params
 
-  if (role !== 'admin') {
+  if (role !== 'librarian') {
     return res.status(HttpCodes.UNAUTHORIZED).json({ message: 'Unauthorized' })
   }
 

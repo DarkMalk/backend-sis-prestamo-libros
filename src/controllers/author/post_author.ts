@@ -7,7 +7,7 @@ import { getOneAuthor } from '../../services/author/get_one_author'
 export const postAuthor = async (req: Request, res: Response) => {
   const { role } = req.body.user as UserPayload
 
-  if (role !== 'admin') {
+  if (role !== 'librarian') {
     return res.status(HttpCodes.UNAUTHORIZED).json({ message: 'Unauthorized' })
   }
 
