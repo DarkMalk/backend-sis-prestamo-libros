@@ -2,22 +2,22 @@ import { RowDataPacket } from 'mysql2'
 
 export type ILoanWithoutId = Omit<ILoan, 'id'>
 
+export type StateLoan = 'active' | 'returned' | 'expired'
+
 export interface ILoan {
   id: number
   id_user: number
   id_book: number
-  id_book_info: number
-  start_date: Date
-  finish_date: Date
-  state: 'active' | 'returned' | 'expired'
+  start_date: string
+  finish_date: string
+  state: StateLoan
 }
 
 export interface RDLoan extends RowDataPacket {
   id: number
-  book_name: string
+  book: string
   username: string
-  serial: string
-  start_date: Date
-  finish_date: Date
-  state: 'active' | 'returned' | 'expired'
+  start_date: string
+  finish_date: string
+  state: StateLoan
 }
