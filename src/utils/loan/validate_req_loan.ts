@@ -1,8 +1,8 @@
 import { ILoanWithoutId } from '../../models/loan/Loan'
 
-const validateReqLoan = ({ id_book, id_user, id_book_info, start_date, finish_date }: ILoanWithoutId) => {
-  if (!id_book || !id_user || !id_book_info || !start_date || !finish_date) {
-    throw new Error('Missing required fields in request body')
+const validateReqLoan = ({ id_book, id_user, start_date, finish_date }: ILoanWithoutId) => {
+  if (!id_book || !id_user || !start_date || !finish_date) {
+    throw new Error('Missing required fields in request body [id_book, id_user, start_date, finish_date]')
   }
 
   if (typeof id_book !== 'number') {
@@ -13,10 +13,6 @@ const validateReqLoan = ({ id_book, id_user, id_book_info, start_date, finish_da
     throw new Error('id_user must be a number')
   }
 
-  if (typeof id_book_info !== 'number') {
-    throw new Error('id_book_info must be a number')
-  }
-
   if (typeof start_date !== 'string') {
     throw new Error('start_date must be a string')
   }
@@ -25,7 +21,7 @@ const validateReqLoan = ({ id_book, id_user, id_book_info, start_date, finish_da
     throw new Error('finish_date must be a string')
   }
 
-  return { id_user, id_book, id_book_info, start_date, finish_date }
+  return { id_user, id_book, start_date, finish_date }
 }
 
 export { validateReqLoan }
