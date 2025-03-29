@@ -1,6 +1,6 @@
 import { conn } from '../../config/db'
 import { RDLoan } from '../../models/loan/Loan'
-import { query } from '../../utils/querys'
+import { query } from '../../utils/loan/querys'
 
 export const getOneLoan = async (id: number) => {
   const [result] = await conn.query<[RDLoan]>(query.getOneLoan, [id])
