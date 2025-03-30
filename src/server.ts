@@ -1,4 +1,4 @@
-import { RouterUser, RouterRole, RouterBook, RouterGenre, RouterAuthor, RouterLoan } from './routes'
+import { RouterUser, RouterRole, RouterBook, RouterGenre, RouterAuthor, RouterLoan, RouterEditorial } from './routes'
 import { updateLoanState } from './services/loan/update_loan_state'
 import { getAllLoans } from './services/loan/get_all_loans'
 import { notFound } from './middlewares'
@@ -21,6 +21,7 @@ app.use('/api/book', RouterBook)
 app.use('/api/genre', RouterGenre)
 app.use('/api/author', RouterAuthor)
 app.use('/api/loan', RouterLoan)
+app.use('/api/editorial', RouterEditorial)
 
 // Schedule Cron for create fine
 cron.schedule('0 0 * * *', async () => {
