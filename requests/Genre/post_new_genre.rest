@@ -1,0 +1,7 @@
+POST http://localhost:3000/api/genre HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer YOUR_VALID_TOKEN_HERE
+
+{
+  "name": "Novela Gráfica"
+}

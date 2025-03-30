@@ -1,0 +1,10 @@
+POST http://localhsot:3000/api/loan HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer YOUR_VALID_TOKEN_HERE
+
+{
+  "id_book": 1, // Book Id
+  "id_user": 1, // User Id
+  "start_date": "2025-04-01",
+  "end_date": "2025-04-15",
+}
